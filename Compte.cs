@@ -1,8 +1,8 @@
 class Compte
 {
-    public string Numero { get; set; }
+    public string Numero { get; init; }
     public string Titulaire { get; set; }
-    public decimal Solde { get; set; }
+    public decimal Solde { get; private set; }
 
     public void Crediter(decimal montant)
     {
