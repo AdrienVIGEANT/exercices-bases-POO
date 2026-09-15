@@ -1,45 +1,19 @@
-﻿decimal solde = 1000m;      // Solde initial du compte
-decimal montant = 1500m;   // Montant de l'opération (positif = crédit, négatif = débit)
+﻿Compte compte1 = new Compte();
+Compte compte2 = new Compte();
 
-// Si le montant est positif, on fait un crédit
-if (montant > 0)
-{
-    solde = Crediter(solde, montant);
-}
-// Si le montant est négatif, on fait un débit
-else if (montant < 0)
-{
-    solde = Debiter(solde, -montant);
-}
+compte1.Numero = "001";
+compte1.Titulaire = "Adrien";
+compte1.Solde = 1000m;
 
-Console.WriteLine($"Solde : {solde}");
+compte2.Numero = "002";
+compte2.Titulaire = "Léa";
+compte2.Solde = 2000m;
 
-/// Ajoute un montant au solde.
-static decimal Crediter(decimal solde, decimal montant)
-{
-    if (montant <= 0)
-    {
-        Console.WriteLine("Le montant du crédit doit être positif !");
-        return solde;
-    }
+Console.WriteLine($"Compte 1 : {compte1.Numero} - {compte1.Titulaire} - Solde : {compte1.Solde} €");
+Console.WriteLine($"Compte 2 : {compte2.Numero} - {compte2.Titulaire} - Solde : {compte2.Solde} €");
 
-    return solde + montant;
-}
+compte1.Solde = 1500m;
 
-/// Retire un montant du solde.
-static decimal Debiter(decimal solde, decimal montant)
-{
-    if (montant <= 0)
-    {
-        Console.WriteLine("Le montant du débit doit être positif !");
-        return solde;
-    }
+Console.WriteLine($"Compte 1 après modification : {compte1.Solde} €");
+Console.WriteLine($"Compte 2 après modification : {compte2.Solde} €");
 
-    if (montant > solde)
-    {
-        Console.WriteLine("Solde insuffisant !");
-        return solde;
-    }
-
-    return solde - montant;
-}
