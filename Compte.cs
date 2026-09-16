@@ -5,10 +5,15 @@ class Compte
     public decimal Solde { get; private set; }
 
     public Compte(string numero, string titulaire)
+        : this(numero, titulaire, 0m)
+    {
+    }
+
+    public Compte(string numero, string titulaire, decimal solde)
     {
         Numero = numero;
         Titulaire = titulaire;
-        Solde = 0m;
+        Solde = solde;
     }
 
     public void Crediter(decimal montant)

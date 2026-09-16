@@ -1,10 +1,9 @@
-﻿Compte compte = new Compte("FR001", "Alice");
+﻿Produit produit = new Produit("P001", "Clavier", 49.99m);
 
-Console.WriteLine($"Compte : {compte.Numero}");
-Console.WriteLine($"Titulaire : {compte.Titulaire}");
-Console.WriteLine($"Solde : {compte.Solde} €");
+produit.AjouterStock(10);
+produit.RetirerStock(3);
 
-compte.Crediter(500m);
-compte.Debiter(100m);
-
-Console.WriteLine($"Nouveau solde : {compte.Solde} €");
+Console.WriteLine($"Référence : {produit.Reference}");
+Console.WriteLine($"Nom : {produit.Nom}");
+Console.WriteLine($"Prix : {produit.Prix} €");
+Console.WriteLine($"Stock : {produit.Stock}");
