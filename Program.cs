@@ -1,14 +1,41 @@
-﻿CompteCourant compteCourant =
-    new CompteCourant("FR001", "Adrien", 1000m);
+﻿Client client1 = new Client("Adrien");
+Client client2 = new Client("Léa");
 
-CompteEpargne compteEpargne =
-    new CompteEpargne("FR002", "Léa", 2000m, 0.03m);
+CompteCourant compte1 =
+    new CompteCourant("FR001", $"Client : {client1.Nom}", 1000m);
 
-compteCourant.Crediter(500m);
-compteEpargne.Debiter(300m);
+CompteEpargne compte2 =
+    new CompteEpargne("FR002", $"Client : {client1.Nom}", 2000m, 0.03m);
 
-Console.WriteLine(
-    $"Compte courant : {compteCourant.Titulaire} - {compteCourant.Solde} €");
+CompteCourant compte3 =
+    new CompteCourant("FR003", $"Client : {client2.Nom}", 500m);
 
-Console.WriteLine(
-    $"Compte épargne : {compteEpargne.Titulaire} - {compteEpargne.Solde} € - Taux : {compteEpargne.TauxInteret:P}");
+client1.AjouterCompte(compte1);
+client1.AjouterCompte(compte2);
+
+client2.AjouterCompte(compte3);
+
+compte1.Crediter(500m);
+compte1.Debiter(100m);
+
+compte2.Crediter(200m);
+
+compte3.Debiter(50m);
+
+Console.WriteLine($"Client : {client1.Nom}");
+
+foreach (Compte compte in client1.Comptes)
+{
+    Console.WriteLine(
+        $"{compte.Numero} - {compte.Titulaire} - {compte.Solde} €");
+}
+
+Console.WriteLine();
+
+Console.WriteLine($"Client : {client2.Nom}");
+
+foreach (Compte compte in client2.Comptes)
+{
+    Console.WriteLine(
+        $"{compte.Numero} - {compte.Titulaire} - {compte.Solde} €");
+}

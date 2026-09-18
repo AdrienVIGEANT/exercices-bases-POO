@@ -20,7 +20,7 @@ class Compte
     {
         if (montant <= 0)
         {
-            Console.WriteLine("Le montant du crédit doit être positif !");
+            Console.WriteLine("Montant invalide");
             return;
         }
 
@@ -31,13 +31,13 @@ class Compte
     {
         if (montant <= 0)
         {
-            Console.WriteLine("Le montant du débit doit être positif !");
+            Console.WriteLine("Montant invalide");
             return;
         }
 
         if (montant > Solde)
         {
-            Console.WriteLine("Solde insuffisant !");
+            Console.WriteLine("Solde insuffisant");
             return;
         }
 
