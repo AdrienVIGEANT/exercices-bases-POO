@@ -1,9 +1,14 @@
-﻿Produit produit = new Produit("P001", "Clavier", 49.99m);
+﻿CompteCourant compteCourant =
+    new CompteCourant("FR001", "Adrien", 1000m);
 
-produit.AjouterStock(10);
-produit.RetirerStock(3);
+CompteEpargne compteEpargne =
+    new CompteEpargne("FR002", "Léa", 2000m, 0.03m);
 
-Console.WriteLine($"Référence : {produit.Reference}");
-Console.WriteLine($"Nom : {produit.Nom}");
-Console.WriteLine($"Prix : {produit.Prix} €");
-Console.WriteLine($"Stock : {produit.Stock}");
+compteCourant.Crediter(500m);
+compteEpargne.Debiter(300m);
+
+Console.WriteLine(
+    $"Compte courant : {compteCourant.Titulaire} - {compteCourant.Solde} €");
+
+Console.WriteLine(
+    $"Compte épargne : {compteEpargne.Titulaire} - {compteEpargne.Solde} € - Taux : {compteEpargne.TauxInteret:P}");

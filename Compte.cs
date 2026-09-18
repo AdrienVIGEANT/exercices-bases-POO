@@ -2,7 +2,7 @@ class Compte
 {
     public string Numero { get; }
     public string Titulaire { get; set; }
-    public decimal Solde { get; private set; }
+    public decimal Solde { get; protected set; }
 
     public Compte(string numero, string titulaire)
         : this(numero, titulaire, 0m)
